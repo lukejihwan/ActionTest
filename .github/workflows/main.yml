@@ -1,0 +1,17 @@
+# workflows의 이름
+name: CI
+
+# 어떤 상황에서 동작하는지
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# 어떠한 동작들이 동작할 것 인지
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # 이건 뭐냐
+    - uses: actions/checkout@v2
