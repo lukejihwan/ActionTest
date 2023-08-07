@@ -12,6 +12,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
     # 이건 뭐냐
     - uses: actions/checkout@v2
+
+    - name: Run a one-line scriptaa
+      run: echo Hello, I am Jihwan
+
