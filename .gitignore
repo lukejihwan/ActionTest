@@ -38,3 +38,4 @@ out/
 
 ### private code
 **/application.properties
+**/cakeproject-aws-keypair.pem
