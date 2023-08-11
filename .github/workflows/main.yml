@@ -20,14 +20,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    steps:
-    # 이건 뭐냐
-    - uses: actions/checkout@v2
-
-    - name: Run a one-line scriptaa
-      run: echo Hello, I am Jihwan
+    steps: # 아래 작업들이 차례로 수행될 것임
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Setup Java JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
       
-    - name: Make Zip File
-      run: zip -qq -r ./$GITHUB_SHA.zip .
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+        shell: bash
+        
+      - name: Build with Gradle
+        run: ./gradlew build
+        shell: bash
+
+      - name: Make Zip File
+        run: zip -qq -r ./$GITHUB_SHA.zip .
+        shell: bash
+        
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: ${{secrets.AWS_REGION}}
       
 
