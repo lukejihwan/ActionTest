@@ -8,6 +8,13 @@ on:
   pull_request:
     branches: [main]
 
+# 환경설정
+env:
+  PROJECT_NAME: cake_project
+  BUCKET_NAME: cakeproject-s3-bucket
+  CODE_DEPLOY_APP_NAME: cake_codeDeploy
+  DEPLOYMENT_GROUP_NAME: cake_codeDeploy_group
+
 # 어떠한 동작들이 동작할 것 인지
 jobs:
   build:
@@ -19,4 +26,8 @@ jobs:
 
     - name: Run a one-line scriptaa
       run: echo Hello, I am Jihwan
+      
+    - name: Make Zip File
+      run: zip -qq -r ./$GITHUB_SHA.zip .
+      
 
