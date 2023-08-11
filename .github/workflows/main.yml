@@ -12,8 +12,8 @@ on:
 env:
   PROJECT_NAME: cake_project
   BUCKET_NAME: cakeproject-s3-bucket
-  CODE_DEPLOY_APP_NAME: cake_codeDeploy
-  DEPLOYMENT_GROUP_NAME: cake_codeDeploy_group
+  CODE_DEPLOY_APP_NAME: cake-codeDeploy
+  DEPLOYMENT_GROUP_NAME: cake-deploy-group
 
 # 어떠한 동작들이 동작할 것 인지
 jobs:
