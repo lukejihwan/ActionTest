@@ -3,6 +3,8 @@ name: CI
 
 # 어떤 상황에서 동작하는지
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
 
